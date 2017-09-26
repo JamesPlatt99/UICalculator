@@ -1,0 +1,53 @@
+﻿<Window x:Class="Calculator_UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calculator_UI"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="43*"/>
+            <ColumnDefinition Width="474*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Calculator" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="2" FontSize="18"/>
+        <TabControl HorizontalAlignment="Left" Height="276" Margin="1,39,0,0" VerticalAlignment="Top" Width="516" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5">
+            <TabControl.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="1.46"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="2.485"/>
+                </TransformGroup>
+            </TabControl.RenderTransform>
+            <TabItem Header="Date">
+                <Grid Background="#FFE5E5E5">
+                    <Calendar x:Name="Calander" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <TextBox x:Name="toAddBox" HorizontalAlignment="Left" Height="23" Margin="331,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+                    <Label x:Name="toAddTxt" Content="Days to add:" HorizontalAlignment="Left" Margin="184,8,0,0" VerticalAlignment="Top" Height="28" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Width="141"/>
+                    <Label x:Name="curDate" Content="" HorizontalAlignment="Left" Margin="10,173,0,0" VerticalAlignment="Top" Height="23" VerticalContentAlignment="Center" Width="85"/>
+                    <Button Content="Enter" HorizontalAlignment="Left" Margin="376,92,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+                    <ComboBox x:Name="timePeriodDD" HorizontalAlignment="Left" Margin="331,55,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged"/>
+                    <Label Content="Time period:" HorizontalAlignment="Left" Margin="184,47,0,0" VerticalAlignment="Top" Height="39" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Width="141"/>
+                    <Label x:Name="tempcurDate" Content="" HorizontalAlignment="Left" Margin="10,191,0,0" VerticalAlignment="Top" Foreground="#FF0051FF" Width="171" VerticalContentAlignment="Center"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Numerical">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="7*"/>
+                        <ColumnDefinition Width="40*"/>
+                        <ColumnDefinition Width="123*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="usrInputBox" HorizontalAlignment="Left" Height="38" Margin="10,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="490" TextChanged="TextBox_TextChanged_1" Grid.ColumnSpan="4" FontSize="20"/>
+                    <Button Content="=" HorizontalAlignment="Left" Margin="10,75,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1" Grid.ColumnSpan="3"/>
+                    <Label x:Name="ans" Content="" HorizontalAlignment="Left" Margin="97,75,0,0" VerticalAlignment="Top" Width="382" Grid.Column="2" Grid.ColumnSpan="2"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Label x:Name="error" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="85,10,0,0" VerticalAlignment="Top" Height="50" Width="379" Foreground="Red" HorizontalContentAlignment="Right"/>
+
+    </Grid>
+</Window>
